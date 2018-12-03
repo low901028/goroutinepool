@@ -12,7 +12,7 @@ type Request struct {
 }
 
 func main() {
-	pool, _ := coroutinepool.NewPool(100, func(payload interface{}) {
+	pool, _ := goroutinepool.NewPool(100, func(payload interface{}) {
 		request, ok := payload.(*Request)
 		if !ok {
 			return
