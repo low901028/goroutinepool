@@ -5,7 +5,7 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
-	"GoDemo/coroutinepool"
+	"github.com/low901028/goroutinepool"
 )
 
 var sum int32
@@ -24,7 +24,7 @@ func demoFunc() error {
 }
 
 func main() {
-	defer coroutinepool.Release()
+	defer goroutinepool.Release()
 
 	runTimes := 1000
 
@@ -32,18 +32,18 @@ func main() {
 	var wg sync.WaitGroup
 	for i := 0; i < runTimes; i++ {
 		wg.Add(1)
-		coroutinepool.Submit(func() {
+		goroutinepool.Submit(func() {
 			demoFunc()
 			wg.Done()
 		})
 	}
 	wg.Wait()
-	fmt.Printf("running goroutines: %d\n", coroutinepool.Running())
+	fmt.Printf("running goroutines: %d\n", goroutinepool.Running())
 	fmt.Printf("finish all tasks.\n")
 
 	// use the pool with a function
 	// set 10 the size of goroutine pool and 1 second for expired duration
-	p, _ := coroutinepool.NewPool(10, func(i interface{}) {
+	p, _ := goroutinepool.NewPool(10, func(i interface{}) {
 		myFunc(i)
 		wg.Done()
 	})
