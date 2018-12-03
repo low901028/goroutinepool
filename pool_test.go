@@ -28,7 +28,7 @@ const (
 
 var curMem uint64
 
-func TestAntsPoolWithFunc(t *testing.T) {
+func TestPoolWithFunc(t *testing.T) {
 	var wg sync.WaitGroup
 	p, _ := NewPool(AntsSize, func(i interface{}) {
 		demoPoolFunc(i)
@@ -64,7 +64,7 @@ func TestNoPool(t *testing.T) {
 	t.Logf("memory usage:%d MB", curMem)
 }
 
-func TestAntsPool(t *testing.T) {
+func TestPool(t *testing.T) {
 	defer Release()
 	var wg sync.WaitGroup
 	for i := 0; i < n; i++ {

@@ -60,7 +60,7 @@ func BenchmarkSemaphoreWithFunc(b *testing.B) {
 	}
 }
 
-func BenchmarkAntsPoolWithFunc(b *testing.B) {
+func BenchmarkPoolWithFunc(b *testing.B) {
 	var wg sync.WaitGroup
 	p, _ := NewPool(benchAntsSize, func(i interface{}) {
 		demoPoolFunc(i)
