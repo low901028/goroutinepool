@@ -3,7 +3,7 @@ package main
 import (
 "io/ioutil"
 "net/http"
-"GoDemo/coroutinepool"
+"github.com/low901028/goroutinepool"
 )
 
 type Request struct {
