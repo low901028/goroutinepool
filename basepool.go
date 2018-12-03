@@ -1,4 +1,4 @@
-package coroutinepool
+package goroutinepool
 
 import (
 	"math"
