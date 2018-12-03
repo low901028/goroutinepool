@@ -5,7 +5,7 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
-	"GoDemo/coroutinepool"
+	"github.com/low901028/goroutinepool"
 )
 
 var sum int32
